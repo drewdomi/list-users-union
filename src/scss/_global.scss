@@ -7,9 +7,6 @@
   font-family: $font-primary;
   list-style: none;
   text-decoration: none;
-  &:focus{
-    outline-color: $color-primary;
-  }
 }
 
 body {
