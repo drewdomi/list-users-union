@@ -24,7 +24,7 @@
     .table-data{
       padding: 15px 0 20px;
       border-bottom: 1px solid $color-gray5;
-      .user-link{
+      .user-link, a{
         color: $color-primary;
       }
     }   
