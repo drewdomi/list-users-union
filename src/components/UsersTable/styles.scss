@@ -1,0 +1,48 @@
+@import "/src/scss/variables";
+
+.users-table{
+  border-top: 1px solid $color-black2;
+  width: 100%;
+  padding: 24px 40px;
+  text-align: center;
+  .table{
+    .trow{
+      display: flex;
+      h3, p{
+        width: 190px;
+        display: block;
+        padding: 8px 10px;
+        text-align: center;
+        font-family: $font-display;
+        font-weight: $font-weight-regular;
+        line-height: 27px;
+      }
+      h3{
+        background-color: $color-primary;
+      }
+    }
+    .table-data{
+      padding: 15px 0 20px;
+      border-bottom: 1px solid $color-gray5;
+      .user-link{
+        color: $color-primary;
+      }
+    }   
+  }
+}
+@media (max-width: 920px) {
+  .users-table{
+    overflow-x: scroll ;
+    .table{
+      .trow{
+        h3, p{
+          min-width: 190px;
+        }
+      }
+      .table-data{
+        width: 1330px;
+      }
+    }
+  }
+  
+}
