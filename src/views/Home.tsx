@@ -1,7 +1,13 @@
+import SearchBox from "../components/SeachBox";
+import Title from "../components/Title";
+import UsersTable from "../components/UsersTable";
+
 function Home() {
   return (
     <>
-      <h1>Home</h1>
+      <Title>List Users</Title>
+      <SearchBox/>
+      <UsersTable/>
     </>
   );
 }
