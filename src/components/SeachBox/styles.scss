@@ -1,0 +1,17 @@
+@import "/src/scss/variables";
+
+input {
+  width: 90%;
+  height: 60px;
+  max-width: 700px;
+  background-color: transparent;
+  border: 1px solid $color-white1;
+  border-radius: 8px;
+  color: $color-gray0;
+  font-size: $font-size-text;
+  font-family: $font-display;
+  padding-left: 24px;
+  &:focus{
+    color: $color-white1;
+  }
+}

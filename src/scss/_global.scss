@@ -7,6 +7,9 @@
   font-family: $font-primary;
   list-style: none;
   text-decoration: none;
+  &:focus{
+    outline-color: $color-primary;
+  }
 }
 
 body {
@@ -14,5 +17,10 @@ body {
   color: $color-white1;
   main{
     margin: 100px 0 150px;  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
   }
 }
