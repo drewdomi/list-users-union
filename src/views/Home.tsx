@@ -41,8 +41,8 @@ function Home() {
           user.name.last.toLowerCase().includes(text) ||
           user.name.title.toLowerCase().includes(text) ||
           user.dob.age.toString().includes(text) ||
-          user.login.uuid.toString().includes(text) ||
-          fixDate(user.dob.date.toString()).includes(text)
+          user.login.uuid.includes(text) ||
+          fixDate(user.dob.date).includes(text)
       );
     }
   };
