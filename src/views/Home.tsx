@@ -10,7 +10,7 @@ function Home() {
   const [users, setUsers] = useState<IUsersTable[]>([]);
   async function getUsers() {
     try {
-      await api.get<IGetResponse>("").then(res => {
+      await api.get<IGetResponse>("?nat=us,br&exc=gender,location,registered&page=1&results=10&seed=de68d2afd5c8563e").then(res => {
         setUsers(res.data.results);
         console.log(res.data.results);
       });
