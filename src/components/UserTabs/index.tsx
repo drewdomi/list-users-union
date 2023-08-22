@@ -1,8 +1,9 @@
+import UserTabItems from "./UserTabItems";
 import "./styles.scss";
 import { useState } from "react";
 
 function UserTabs() {
-  const tabs = ['Info', 'Location', 'Login'];
+  const tabs = ['info', 'location', 'login'];
   const [activeTab, setActiveTab] = useState(tabs[0]);
 
   const handleClick = (tab: string) => {
@@ -10,6 +11,7 @@ function UserTabs() {
   };
 
   return (
+    <div>
     <div className="tabs">
       <div className="tabs-selector">
         {tabs.map((tab, key) => {
@@ -24,6 +26,8 @@ function UserTabs() {
           );
         })}
       </div>
+    </div>
+      <UserTabItems/>
     </div>
   );
 }

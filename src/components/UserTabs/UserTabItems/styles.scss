@@ -1,0 +1,29 @@
+@import "/src/scss/variables";
+
+.tab-items {
+  margin-top: 40px;
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    justify-content: start;
+
+    li {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+
+      h4 {
+        font-weight: $font-weight-medium;
+        font-size: $font-size-text;
+        color: $color-white0;
+      }
+
+      p {
+        font-weight: $font-weight-medium;
+        font-size: $font-size-userSubInfo;
+        color: $color-gray3;
+      }
+    }
+  }
+}
