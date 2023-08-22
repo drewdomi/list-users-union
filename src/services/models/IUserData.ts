@@ -4,6 +4,18 @@ interface Name {
   last: string;
 }
 
+interface Street {
+  number: number;
+  name: string;
+}
+
+interface Location {
+  street: Street;
+  city: string;
+  state: string;
+  country: string;
+}
+
 interface Login {
   uuid: string;
   username: string;
@@ -32,6 +44,7 @@ interface Picture {
 
 export interface Result {
   name: Name;
+  location: Location;
   email: string;
   login: Login;
   dob: Dob;
@@ -66,5 +79,14 @@ export interface IUsersTable {
   dob: {
     date: string;
     age: number;
+  };
+  location: {
+    street: {
+      number: number;
+      name: string;
+    };
+    city: string;
+    state: string;
+    country: string;
   };
 }
