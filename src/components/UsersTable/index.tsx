@@ -1,9 +1,9 @@
 import "./styles.scss";
 import { fixId, fixDate } from "../../snippets/fixDataFromApi";
-import { IUsers } from "../../services/models/IUserData";
+import { IUsersTable } from "../../services/models/IUserData";
 
 type Props = {
-  users: IUsers[];
+  users: IUsersTable[];
 };
 
 function UsersTable({ users }: Props) {
@@ -27,8 +27,8 @@ function UsersTable({ users }: Props) {
               <p>{user.name.first}</p>
               <p>{user.name.last}</p>
               <p>{user.name.title}</p>
-              <p>{fixDate(user.registered.date)}</p>
-              <p>{user.registered.age}</p>
+              <p>{fixDate(user.dob.date)}</p>
+              <p>{user.dob.age}</p>
               <p className="user-link"><a href="/user">View profile</a></p>
             </div>
           );

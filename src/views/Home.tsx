@@ -3,17 +3,16 @@ import Title from "../components/Title";
 import UsersTable from "../components/UsersTable";
 import { useEffect, useState } from "react";
 import api from "../services/api";
-import { IGetResponse, IUsers } from "../services/models/IUserData";
+import { IGetResponse, IUsersTable } from "../services/models/IUserData";
 import Pagination from "../components/Pagination";
 
 function Home() {
-  const [users, setUsers] = useState<IUsers[]>([]);
+  const [users, setUsers] = useState<IUsersTable[]>([]);
   async function getUsers() {
     try {
-      // https://randomuser.me/api/?nat=us,br&exc=gender,location,registered&page=10&results=10
-      await api.get<IGetResponse>("?page=1&results=10&seed=drewdomi").then(res => {
+      await api.get<IGetResponse>("").then(res => {
         setUsers(res.data.results);
-        // console.log(res.data.results);
+        console.log(res.data.results);
       });
     } catch (error) {
       console.error('Error fetching data:', error);
