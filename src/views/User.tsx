@@ -1,5 +1,6 @@
 import ReturnHomeButton from "../components/ReturnHomeButton";
 import UserCard from "../components/UserCard";
+import UserTabs from "../components/UserTabs";
 
 function User() {
   return (
@@ -11,6 +12,7 @@ function User() {
         name="Lisiane Carvalho"
         title="Ms"
       />
+      <UserTabs/>
     </>
   );
 }
