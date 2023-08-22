@@ -1,0 +1,37 @@
+@import "/src/scss/variables";
+
+.pagination{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 10px;
+  button{
+    width: 60px;
+    height: 60px;
+    font-size: $font-size-text;
+    color: $color-white0;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 1px solid $color-primary;
+    cursor: pointer;
+    &.active{
+      background-color: $color-primary;
+    }
+    &:hover{
+      background-color: $color-primary;
+    }
+  }
+  .pn-btn{
+    &:hover{
+      svg{
+        color: $color-white0;
+      }
+    }
+    svg{
+      font-size: $font-size-text;
+      color: $color-gray4;
+      position: relative;
+      top: 2px;
+    }
+  }
+}

@@ -1,6 +1,13 @@
 import "./styles.scss";
+import { fixId, fixDate } from "../../snippets/fixDataFromApi";
+import { IUsersTable } from "../../services/models/IUserData";
 
-function UsersTable() {
+type Props = {
+  users: IUsersTable[];
+};
+
+function UsersTable({ users }: Props) {
+
   return (
     <div className="users-table">
       <div className="table">
@@ -13,19 +20,22 @@ function UsersTable() {
           <h3>Age</h3>
           <h3>Actions</h3>
         </div>
-        <div className="table-data trow">
-          <p>gdc456dfvdfb</p>
-          <p>Jennie</p>
-          <p>Nicohls</p>
-          <p>Miss</p>
-          <p>11/02/2023</p>
-          <p>30</p>
-          <p className="user-link"><a href="/user">View profile</a></p>
-        </div>
-        
+        {users.map((user, key) => {
+          return (
+            <div key={key} className="table-data trow">
+              <p>{fixId(user.login.uuid)}</p>
+              <p>{user.name.first}</p>
+              <p>{user.name.last}</p>
+              <p>{user.name.title}</p>
+              <p>{fixDate(user.dob.date)}</p>
+              <p>{user.dob.age}</p>
+              <p className="user-link"><a href="/user">View profile</a></p>
+            </div>
+          );
+        })}
       </div>
     </div>
-  )
+  );
 }
 
 export default UsersTable;
