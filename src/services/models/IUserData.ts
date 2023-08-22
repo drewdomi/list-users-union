@@ -4,31 +4,6 @@ interface Name {
   last: string;
 }
 
-interface Street {
-  number: number;
-  name: string;
-}
-
-interface Coordinates {
-  latitude: string;
-  longitude: string;
-}
-
-interface Timezone {
-  offset: string;
-  description: string;
-}
-
-interface Location {
-  street: Street;
-  city: string;
-  state: string;
-  country: string;
-  postcode: number;
-  coordinates: Coordinates;
-  timezone: Timezone;
-}
-
 interface Login {
   uuid: string;
   username: string;
@@ -44,14 +19,9 @@ interface Dob {
   age: number;
 }
 
-interface Registered {
-  date: string;
-  age: number;
-}
-
 interface Id {
-  name: string | null;
-  value: string | null;
+  name: string;
+  value: string;
 }
 
 interface Picture {
@@ -61,14 +31,10 @@ interface Picture {
 }
 
 export interface Result {
-  gender: string;
   name: Name;
-  registed: Registered
-  location: Location;
   email: string;
   login: Login;
   dob: Dob;
-  registered: Registered;
   phone: string;
   cell: string;
   id: Id;
@@ -88,7 +54,7 @@ export interface IGetResponse {
   info: Info;
 }
 
-export interface IUsers {
+export interface IUsersTable {
   login: {
     uuid: string;
   };
@@ -97,7 +63,7 @@ export interface IUsers {
     first: string;
     last: string;
   };
-  registered: {
+  dob: {
     date: string;
     age: number;
   };
