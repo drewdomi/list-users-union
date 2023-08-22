@@ -1,0 +1,9 @@
+@import "/src/scss/variables";
+
+.return-to-home {
+  color: $color-gray0;
+  font-size: $font-size-userSubInfo;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
