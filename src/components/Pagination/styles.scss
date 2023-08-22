@@ -1,5 +1,21 @@
 @import "/src/scss/variables";
 
-div{
-  margin-top: 50px;
+.pagination{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 10px;
+  button{
+    width: 60px;
+    height: 60px;
+    font-size: $font-size-text;
+    color: $color-white0;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 1px solid $color-primary;
+    cursor: pointer;
+    &.active{
+      background-color: $color-primary;
+    }
+  }
 }
