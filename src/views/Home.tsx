@@ -18,11 +18,9 @@ function Home() {
 
   async function getUsers() {
     try {
-      const response = await api.get<IGetResponse>(
-        "?nat=us,br&exc=gender,registered&page=1&results=50&seed=de68d2afd5c8563e"
-      );
+      const response = await api.get<IGetResponse>("");
       setUsers(response.data.results);
-      // console.log(response.data.results)
+      console.log(response.data.results)
     } catch (error) {
       console.error("Error fetching data:", error);
     }
