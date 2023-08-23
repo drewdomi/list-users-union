@@ -2,8 +2,9 @@ import UserTabItems from "./UserTabItems";
 import "./styles.scss";
 import { useState } from "react";
 
+export const tabs = ['info', 'location', 'login'];
+
 function UserTabs() {
-  const tabs = ['info', 'location', 'login'];
   const [activeTab, setActiveTab] = useState(tabs[0]);
 
   const handleClick = (tab: string) => {
@@ -27,7 +28,7 @@ function UserTabs() {
         })}
       </div>
     </div>
-      <UserTabItems/>
+      <UserTabItems tab={activeTab}/>
     </div>
   );
 }
