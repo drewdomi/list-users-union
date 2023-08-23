@@ -70,16 +70,24 @@ export interface IGetResponse {
 export interface IUsersTable {
   login: {
     uuid: string;
+    username: string;
+    password: string;
   };
+  email: string;
   name: {
     title: string;
     first: string;
     last: string;
   };
+  id: {
+    name: string;
+    value: string;
+  },
   dob: {
     date: string;
     age: number;
   };
+  nat: string;
   location: {
     street: {
       number: number;
@@ -89,4 +97,7 @@ export interface IUsersTable {
     state: string;
     country: string;
   };
+  picture: {
+    large: string;
+  }
 }
