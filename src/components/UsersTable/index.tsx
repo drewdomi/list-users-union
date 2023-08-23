@@ -29,7 +29,9 @@ function UsersTable({ users }: Props) {
               <p>{user.name.title}</p>
               <p>{fixDate(user.dob.date)}</p>
               <p>{user.dob.age}</p>
-              <p className="user-link"><a href="/user">View profile</a></p>
+              <p className="user-link">
+                <a href={`/user/${user.login.uuid}`}>View profile</a>
+              </p>
             </div>
           );
         })}
