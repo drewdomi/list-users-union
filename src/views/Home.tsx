@@ -18,9 +18,14 @@ function Home() {
 
   async function getUsers() {
     try {
-      const response = await api.get<IGetResponse>("");
-      setUsers(response.data.results);
-      console.log(response.data.results)
+      if (!localStorage.getItem("users")) {
+        const response = await api.get<IGetResponse>("");
+        setUsers(response.data.results);
+        console.log(response.data.results);
+        localStorage.setItem("users", JSON.stringify(response.data.results));
+      } else{
+        setUsers(JSON.parse(localStorage.getItem("users") || ""))
+      }
     } catch (error) {
       console.error("Error fetching data:", error);
     }
