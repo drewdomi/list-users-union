@@ -32,8 +32,8 @@ function UserTabs({userInfo}: Props) {
           );
         })}
       </div>
-    </div>
       <UserTabItems tab={activeTab} userInfo={userInfo}/>
+    </div>
     </div>
   );
 }

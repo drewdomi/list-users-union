@@ -1,6 +1,7 @@
 import "./styles.scss";
 import { tabs } from "..";
 import { IUsersTable } from "../../../services/models/IUserData";
+import { fixDate } from "../../../snippets/fixDataFromApi";
 
 type Props = {
   tab: string | typeof tabs[number];
@@ -21,8 +22,8 @@ function UserTabItems({ tab, userInfo }: Props) {
           <p>{userInfo.name.first} {userInfo.name.last}</p>
         </li>
         <li>
-          <h4>BirthDay</h4>
-          <p>{userInfo.dob.date}8</p>
+          <h4>Birthday</h4>
+          <p>{fixDate(userInfo.dob.date)}</p>
         </li>
         <li>
           <h4>Nationality</h4>
