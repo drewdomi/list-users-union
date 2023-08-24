@@ -62,12 +62,12 @@ function Home() {
       <Title>List Users</Title>
       <SearchBox onChange={handleSearch} />
       <UsersTable users={filteredUsers.slice(firstPostIndex, lastPostIndex)} />
-      {/* <Pagination
+      <Pagination
         totalPosts={filteredUsers.length}
         postsPerPage={postsPerPage}
         setCurrentPage={setCurrentPage}
         currentPage={currentPage}
-      /> */}
+      />
     </>
   );
 }
