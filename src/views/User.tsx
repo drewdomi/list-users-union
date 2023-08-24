@@ -6,54 +6,59 @@ import api from "../services/api";
 import { IGetResponse, IUsersTable } from "../services/models/IUserData";
 
 function User() {
-
-  const [users, setUsers] = useState<IUsersTable[]>([]);
+  const uuid = window.location.pathname.slice(6, -1);
   const [user, setUser] = useState<IUsersTable[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  async function getUsers() {
+  async function getUser() {
     try {
       if (!localStorage.getItem("users")) {
         const response = await api.get<IGetResponse>("");
-        setUsers(response.data.results);
-        console.log(response.data.results);
+        const searchByUuid = (uuid: string) => {
+          return response.data.results.filter(
+            (user: any) => user.login.uuid.includes(uuid)
+          );
+        };
+        setUser(searchByUuid(uuid));
+
         localStorage.setItem("users", JSON.stringify(response.data.results));
-      } else {
-        setUsers(JSON.parse(localStorage.getItem("users") || ""));
+      }
+      else {
+        const userFound = JSON.parse(localStorage.getItem("users") || "{}");
+        const searchByUuid = (uuid: string) => {
+          return userFound.filter(
+            (user: any) => user.login.uuid.includes(uuid)
+          );
+        };
+        setUser(searchByUuid(uuid));
       }
     } catch (error) {
       console.error("Error fetching data:", error);
     }
   }
-
-  async function setUserByUuid(){
-    try {
-      const uuid = window.location.pathname.slice(6, -1);
-      const searchByUuid = (uuid: string) => {
-        return users.filter(
-          (user) => user.login.uuid.includes(uuid)
-        );
-      };
-      setUser(searchByUuid(uuid))
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  }
   useEffect(() => {
-    getUsers();
-    setUserByUuid();
+    const fetchData = async () => {
+      await getUser();
+    };
+    fetchData().finally(() => {
+      setLoading(false);
+    });
   }, []);
 
   return (
     <>
       <ReturnHomeButton />
-      <UserCard
-        image={""}
-        altImage="Image of Lisiane Carvalho"
-        name="Lisiane Carvalho"
-        title="Ms"
-      />
-      <button onClick={() => console.log(user)}>click</button>
-      <UserTabs/>
+      {!loading && (
+        <>
+          <UserCard
+            image={user[0].picture.large || ""}
+            altImage={`Photo de ${user[0].name.first} ${user[0].name.last}`}
+            name={`${user[0].name.first} ${user[0].name.last}`}
+            title={`${user[0].name.title}`}
+          />
+          <UserTabs />
+        </>
+      )}
     </>
   );
 }
