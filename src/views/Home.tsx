@@ -6,12 +6,14 @@ import api from "../services/api";
 import { IGetResponse, IUsersTable } from "../services/models/IUserData";
 import Pagination from "../components/Pagination";
 import { fixDate } from "../snippets/fixDataFromApi";
+import Loader from "../components/Loader";
 
 function Home() {
   const [users, setUsers] = useState<IUsersTable[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(10);
   const [inputText, setInputText] = useState("");
+  const [loader, setLoader] = useState(true);
 
   const lastPostIndex = currentPage * postsPerPage;
   const firstPostIndex = lastPostIndex - postsPerPage;
@@ -54,11 +56,19 @@ function Home() {
   const filteredUsers = filterUser(inputText);
 
   useEffect(() => {
-    getUsers();
+    const fetchData = async () => {
+      await getUsers();
+    };
+    fetchData().finally(() => {
+      setLoader(false);
+    });
   }, []);
 
   return (
     <>
+      {loader && (
+        <Loader/>
+      )}
       <Title>List Users</Title>
       <SearchBox onChange={handleSearch} />
       <UsersTable users={filteredUsers.slice(firstPostIndex, lastPostIndex)} />

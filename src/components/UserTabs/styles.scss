@@ -29,3 +29,13 @@
     
   }
 }
+@media (max-width: 550px) {
+  .tabs{
+    .tabs-selector{
+      .tab{
+        width: 70px;
+        font-size: $font-size-text;
+      }
+    }
+  }
+}
