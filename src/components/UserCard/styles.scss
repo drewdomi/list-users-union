@@ -1,0 +1,17 @@
+@import "/src/scss/variables";
+
+.card {
+  text-align: center;
+  width: 100%;
+  border-bottom: 1px solid $color-black2;
+  padding-bottom: 50px;
+  img{
+    width: 150px;
+    border-radius: 50%;
+    margin-bottom: 30px;
+  }
+  p{
+    font-size: $font-size-userTitle;
+    color: $color-gray1;
+  }
+}

@@ -4,6 +4,18 @@ interface Name {
   last: string;
 }
 
+interface Street {
+  number: number;
+  name: string;
+}
+
+interface Location {
+  street: Street;
+  city: string;
+  state: string;
+  country: string;
+}
+
 interface Login {
   uuid: string;
   username: string;
@@ -32,6 +44,7 @@ interface Picture {
 
 export interface Result {
   name: Name;
+  location: Location;
   email: string;
   login: Login;
   dob: Dob;
@@ -57,14 +70,36 @@ export interface IGetResponse {
 export interface IUsersTable {
   login: {
     uuid: string;
+    username: string;
+    password: string;
   };
+  email: string;
   name: {
     title: string;
     first: string;
     last: string;
   };
+  id: {
+    name: string;
+    value: string;
+  },
+  phone: string;
+  cell: string;
   dob: {
     date: string;
     age: number;
   };
+  nat: string;
+  location: {
+    street: {
+      number: number;
+      name: string;
+    };
+    city: string;
+    state: string;
+    country: string;
+  };
+  picture: {
+    large: string;
+  }
 }
