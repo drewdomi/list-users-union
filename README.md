@@ -10,7 +10,7 @@ Este é um aplicativo web desenvolvido em **React** com **TypeScript** que conso
 - Primeiro baixe o repositório (seja por `git clone` ou através do arquivo .zip no botão "Code <>").
 - Com o projeto já **baixado** e/ou descompactado entre na pasta e **rode o comando** `npm install` para baixar e instalar todas as dependencias!!
 - Agora dê o comando `npm run dev` para iniciar o projeto.
-- O projeto estará disponível para acesso apartir do link `http://localhost:5173/`.
+- O projeto estará disponível para acesso apartir do link [http://localhost:5173/](http://localhost:5173/).
 
 ## 💡 Características principais:
 - **Tabela de Usuários**: Exibe os dados dos usuários recebidos da API RandomUser.
