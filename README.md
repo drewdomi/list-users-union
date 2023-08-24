@@ -6,7 +6,7 @@
 ## 💭 Oque é esse projeto?
 Este é um aplicativo web desenvolvido em **React** com **TypeScript** que consome dados da API [RandomUser.me](https://randomuser.me/) para gerar uma tabela com informações de usuários. A aplicação utiliza o **React Router** para permitir a navegação entre diferentes páginas, e o **Axios** para fazer requisições HTTP à API.
 
-## 🔥 Como rodar esse projeto?
+## 🔥 Como instalar esse projeto?
 - Primeiro baixe o repositório (seja por `git clone` ou através do arquivo .zip no botão "Code <>").
 - Com o projeto já **baixado** e/ou descompactado entre na pasta e **rode o comando** `npm install` para baixar e instalar todas as dependencias!!
 - Agora dê o comando `npm run dev` para iniciar o projeto.
