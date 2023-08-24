@@ -2,8 +2,8 @@ import "./styles.scss";
 
 function Loader() {
   return (
-    <div className="Loader">
-      <p>Loader</p>
+    <div className="loader">
+      <div/>
     </div>
   );
 }
