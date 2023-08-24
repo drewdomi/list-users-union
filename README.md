@@ -1,5 +1,5 @@
-![DEMO GIF1](src/assets/demo1.gif)
-![DEMO GIF2](src/assets/demo2.gif)
+![DEMO GIF](public/demo.gif)
+![DEMO PHOTO](public/demo-photo.png)
 
 [Clique aqui e veja Online](https://github.com/drewdomi/)
 
