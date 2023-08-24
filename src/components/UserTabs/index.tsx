@@ -1,10 +1,15 @@
+import { IUsersTable } from "../../services/models/IUserData";
 import UserTabItems from "./UserTabItems";
 import "./styles.scss";
 import { useState } from "react";
 
 export const tabs = ['info', 'location', 'login'];
 
-function UserTabs() {
+type Props = {
+  userInfo: IUsersTable;
+}
+
+function UserTabs({userInfo}: Props) {
   const [activeTab, setActiveTab] = useState(tabs[0]);
 
   const handleClick = (tab: string) => {
@@ -28,7 +33,7 @@ function UserTabs() {
         })}
       </div>
     </div>
-      <UserTabItems tab={activeTab}/>
+      <UserTabItems tab={activeTab} userInfo={userInfo}/>
     </div>
   );
 }

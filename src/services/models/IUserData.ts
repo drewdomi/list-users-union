@@ -83,6 +83,8 @@ export interface IUsersTable {
     name: string;
     value: string;
   },
+  phone: string;
+  cell: string;
   dob: {
     date: string;
     age: number;

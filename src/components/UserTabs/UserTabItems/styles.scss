@@ -2,6 +2,7 @@
 
 .tab-items {
   margin-top: 40px;
+
   ul {
     display: flex;
     flex-direction: column;
@@ -17,12 +18,19 @@
         font-weight: $font-weight-medium;
         font-size: $font-size-text;
         color: $color-white0;
+
+        &.id-name {
+          text-transform: uppercase;
+        }
       }
 
       p {
         font-weight: $font-weight-medium;
         font-size: $font-size-userSubInfo;
         color: $color-gray3;
+      }
+      address{
+        font-style: normal;
       }
     }
   }

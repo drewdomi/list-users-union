@@ -56,7 +56,7 @@ function User() {
             name={`${user[0].name.first} ${user[0].name.last}`}
             title={`${user[0].name.title}`}
           />
-          <UserTabs />
+          <UserTabs userInfo={user[0]}/>
         </>
       )}
     </>
