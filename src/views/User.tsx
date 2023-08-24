@@ -5,11 +5,12 @@ import { useEffect, useState } from "react";
 import api from "../services/api";
 import { IGetResponse, IUsersTable } from "../services/models/IUserData";
 import Title from "../components/Title";
+import Loader from "../components/Loader";
 
 function User() {
   const uuid = window.location.pathname.slice(6);
   const [user, setUser] = useState<IUsersTable[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [loader, setLoader] = useState(true);
 
   function searchByUuid(uuid: string, users: IUsersTable[]) {
     return users.filter(
@@ -38,14 +39,17 @@ function User() {
       await getUser();
     };
     fetchData().finally(() => {
-      setLoading(false);
+      setLoader(false);
     });
   }, []);
 
   return (
     <>
+    {loader && (
+        <Loader/>
+      )}
       <ReturnHomeButton />
-      {!loading && user.length > 0 && (
+      {!loader && user.length > 0 && (
         <>
           <UserCard
             image={user[0].picture.large}
@@ -56,7 +60,7 @@ function User() {
           <UserTabs userInfo={user[0]} />
         </>
       )}
-      {!loading && user.length === 0 && (
+      {!loader && user.length === 0 && (
         <>
           <Title>User not found</Title>
         </>
