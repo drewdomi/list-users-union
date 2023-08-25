@@ -30,5 +30,5 @@ Este é um aplicativo web desenvolvido em **React** com **TypeScript** que conso
 - [x] Pesquisar usuários 
 - [x] Paginar 10 usuários por página
 - [x] Visualizar o perfil de um usuário especifico
-- [ ] Responsividade
+- [x] Responsividade
 - [ ] Testes unitários
