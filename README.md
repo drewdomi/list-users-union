@@ -1,7 +1,6 @@
 ![DEMO GIF](public/demo.gif)
 ![DEMO PHOTO1](public/demo-photo1.jpg)
 ![DEMO PHOTO2](public/demo-photo2.jpg)
-![DEMO PHOTO3](public/demo-photo3.jpg)
 
 [Clique aqui e veja Online](https://github.com/drewdomi/)
 
