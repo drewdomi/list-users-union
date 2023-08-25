@@ -5,11 +5,5 @@
       "source": "/(.*)",
       "destination": "/"
     }
-  ],
-  "routes": [
-    {
-      "src": "/user/(?<id>[^/]+)",
-      "dest": "/user/$id"
-    }
   ]
 }
