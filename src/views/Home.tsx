@@ -1,37 +1,41 @@
 import SearchBox from "../components/SeachBox";
 import Title from "../components/Title";
 import UsersTable from "../components/UsersTable";
-import { ChangeEvent, useEffect, useState } from "react";
+import { ChangeEvent, useState } from "react";
 import api from "../services/api";
 import { IGetResponse, IUsersTable } from "../services/models/IUserData";
 import Pagination from "../components/Pagination";
 import { fixDate } from "../snippets/fixDataFromApi";
 import Loader from "../components/Loader";
+import { useQuery } from "@tanstack/react-query";
 
 function Home() {
   const [users, setUsers] = useState<IUsersTable[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(10);
   const [inputText, setInputText] = useState("");
-  const [loader, setLoader] = useState(true);
 
   const lastPostIndex = currentPage * postsPerPage;
   const firstPostIndex = lastPostIndex - postsPerPage;
 
-  async function getUsers() {
-    try {
+  const usersQuery = useQuery({
+    queryKey: ["users"],
+    queryFn: () => {
       if (!localStorage.getItem("users")) {
-        const response = await api.get<IGetResponse>("");
-        setUsers(response.data.results);
-        console.log(response.data.results);
-        localStorage.setItem("users", JSON.stringify(response.data.results));
-      } else{
-        setUsers(JSON.parse(localStorage.getItem("users") || ""))
+        api.get<IGetResponse>("").then(res => {
+          localStorage.setItem("users", JSON.stringify(res.data.results));
+          setUsers(res.data.results);
+        });
+        return users;
+      } else {
+        setUsers(JSON.parse(localStorage.getItem("users") || ""));
+        return users;
       }
-    } catch (error) {
-      console.error("Error fetching data:", error);
     }
-  }
+  });
+
+  if (usersQuery.isLoading) return <Loader />;
+  if (usersQuery.isError) return <h1>Error</h1>;
 
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
     setInputText(e.target.value.toLowerCase());
@@ -55,20 +59,8 @@ function Home() {
 
   const filteredUsers = filterUser(inputText);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      await getUsers();
-    };
-    fetchData().finally(() => {
-      setLoader(false);
-    });
-  }, []);
-
   return (
     <>
-      {loader && (
-        <Loader/>
-      )}
       <Title>List Users</Title>
       <SearchBox onChange={handleSearch} />
       <UsersTable users={filteredUsers.slice(firstPostIndex, lastPostIndex)} />
