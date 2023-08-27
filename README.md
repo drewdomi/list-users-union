@@ -23,6 +23,7 @@ Este é um aplicativo web desenvolvido em **React** com **TypeScript** que conso
 - **TypeScript**: Um supersest JavaScript que adiciona recursos de tipagem estática e outros recursos avançados para melhorar a produtividade e a qualidade do código. Ele nos ajuda a evitar erros comuns e oferece um ambiente de desenvolvimento mais robusto.
 - **React Router**: Uma poderosa biblioteca de roteamento para React que facilita a navegação e o gerenciamento de URL dentro do aplicativo.
 - **Axios**: Uma biblioteca JavaScript popular usada para fazer solicitações HTTP a servidores e APIs. Ela fornece uma interface simples para enviar e receber dados, lidando com promises e oferecendo suporte a várias funcionalidades, como interceptadores e cancelamento de solicitações.
+- **React Query**: Uma poderosa biblioteca JavaScript projetada para aprimorar a gestão de estado de dados e a interação com APIs e recursos de back-end em aplicações React de maneira altamente otimizada e eficaz.
 - **SCSS** (Sass): Um pré-processador css que estende a sintaxe do CSS convencional oferecendo recursos avançados, como variáveis, aninhamento, mixins e importação, facilitando a escrita e a manutenção de estilos complexos em projetos web.
 
 ## ✅ Todos
