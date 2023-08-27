@@ -42,7 +42,7 @@ function Home() {
   const filterUser = (text: string) => {
     if (text === "") return usersQuery.data;
     else {
-      return usersQuery.data.find(
+      return usersQuery.data.filter(
         (user: IUsersTable) =>
           user.name.first.toLowerCase().includes(text) ||
           user.name.last.toLowerCase().includes(text) ||
