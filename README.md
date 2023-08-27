@@ -32,4 +32,4 @@ Este é um aplicativo web desenvolvido em **React** com **TypeScript** que conso
 - [x] Paginar 10 usuários por página
 - [x] Visualizar o perfil de um usuário especifico
 - [x] Responsividade
-- [ ] Testes unitários
+- [x] Storybook
