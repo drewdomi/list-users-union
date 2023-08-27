@@ -10,7 +10,6 @@ import Loader from "../components/Loader";
 import { useQuery } from "@tanstack/react-query";
 
 function Home() {
-  const [users, setUsers] = useState<IUsersTable[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(10);
   const [inputText, setInputText] = useState("");
@@ -24,12 +23,10 @@ function Home() {
       if (!localStorage.getItem("users")) {
         api.get<IGetResponse>("").then(res => {
           localStorage.setItem("users", JSON.stringify(res.data.results));
-          setUsers(res.data.results);
+          return res.data.results;
         });
-        return users;
       } else {
-        setUsers(JSON.parse(localStorage.getItem("users") || ""));
-        return users;
+        return JSON.parse(localStorage.getItem("users") || "");
       }
     }
   });
@@ -43,10 +40,10 @@ function Home() {
   };
 
   const filterUser = (text: string) => {
-    if (text === "") return users;
+    if (text === "") return usersQuery.data;
     else {
-      return users.filter(
-        (user) =>
+      return usersQuery.data.find(
+        (user: IUsersTable) =>
           user.name.first.toLowerCase().includes(text) ||
           user.name.last.toLowerCase().includes(text) ||
           user.name.title.toLowerCase().includes(text) ||
